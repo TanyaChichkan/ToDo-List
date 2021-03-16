@@ -18,11 +18,10 @@ class TaskCreator{
 
     setTimingStart(value=""){
         const date = value ? value : new Date();
-
         const dayOfMonth = this.dateFormatting(date.getDate());
         const month = this.dateFormatting(date.getMonth()+1);
         const year = date.getFullYear();
-        const result = `${dayOfMonth}/${month}/${year}`;
+        const result = `${dayOfMonth}-${month}-${year}`;
         return result;
     }
 
@@ -42,10 +41,14 @@ class TaskCreator{
         this.form.addEventListener('submit',e=>{
             e.preventDefault();
             this.addNewTask(this.makeTask());
-            this.form.reset();
-            this.newTask={};
+            this.resetForm();
         });
         
+    }
+
+    resetForm(){
+        this.form.reset();
+            this.newTask={};
     }
 
     addNewTask(task){

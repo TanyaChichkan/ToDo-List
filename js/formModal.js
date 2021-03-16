@@ -4,17 +4,26 @@ import TaskCreator from "./taskCreator.js";
 class FormModal extends TaskCreator{
     constructor(){
         super();
-        this.modalForm = document.querySelector('.modal-form');
-        this.taskTextInput = this.modalForm.querySelector('input[name="taskName"]');
-        this.startDateInput = this.modalForm.querySelector('input[name="startDate"]');
-        this.endDateInput = this.modalForm.querySelector('input[name="expDate"]');
+        this.form= document.querySelector('.modal-form');
+        this.input = this.form.querySelector('input[name="taskName"]');
+        this.startDateInput = this.form.querySelector('input[name="startDate"]');
+        this.endDateInput = this.form.querySelector('input[name="expDate"]');
+        // this.taskTextInput.value = this.;
     }
 
-    getValue(){
-        console.log(this.input.value);
-        console.log(this.taskTextInput);
-        this.taskTextInput.value = this.input.value;
+    createTask(){
+        this.newTask.id=this.idValue++;
+        this.newTask.title = this.input.value;
+        this.newTask.creationDate =  this.startDateInput.value;
+        this.newTask.expirationDate = this.endDateInput.value;
+        return this.newTask;
     }
+
+
+
+
+
+
 
 
 

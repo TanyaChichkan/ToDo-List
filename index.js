@@ -9,7 +9,7 @@ new modal().openModal();
 new modal().closeModalByClick();
 new modal().closeModalByEscape();
 
-
+console.log(new formModal().createTask());
 
 
 

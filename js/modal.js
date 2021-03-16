@@ -5,12 +5,12 @@ class Modal {
     constructor(){
         this.openButton = document.querySelector('.add-button');
         this.modal = document.querySelector('.overlay');
+        this.saveButton = document.querySelector(".button[data-name='save']")
     }
 
     openModal(){
         this.openButton.addEventListener('click',e=>{
             this.modal.classList.toggle('is-open');
-            new FormModal().getValue();
         });
     }
 
@@ -25,8 +25,10 @@ class Modal {
                 this.closeModal();   
             }
 
-            if(e.target.dataset.name==="save"){
+            if(e.target.dataset.name === "save"){
                 e.preventDefault();
+                const newTask = new FormModal().createTask();
+                new TaskCreator().addNewTask(newTask);
             }
         });
     }
@@ -40,7 +42,6 @@ class Modal {
     }
 
 }
-
 
 
 export default Modal;
