@@ -7,7 +7,7 @@ export class Storage{
     static getFromLocalStorage(){
         const data = localStorage.getItem("tasks");
 
-        return data? JSON.parse(data) :[];
+        return data ? JSON.parse(data) :[];
           
     }
 };

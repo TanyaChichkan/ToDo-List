@@ -12,7 +12,6 @@ class RenderList{
     }
 
     markUpCheck(){
-        console.log(this.tasks);
         if(this.tasks.length){
             this.listWrapper.innerHTML="";
             this.createListItems();
@@ -23,21 +22,17 @@ class RenderList{
     }
 
     createListItems(){
-        console.log();
         const markUp =  this.tasks.map(({title,creationDate,expirationDate})=>{
                 return `<li class="list-item">
                         <p class="list-text">${title}</p>
                         <p class="list-text">Start date: ${creationDate}</p>
                         <p class="list-text">Finish date: ${expirationDate}</p>
                         </li>`
-            });
-            
+            }); 
         return markUp.join(" ");
     }
 
     renderList(){
-        
-        
         if(this.tasks.length){
             this.createList();
             let list = document.querySelector('.list');
@@ -51,7 +46,6 @@ class RenderList{
         let list = document.createElement('ul');
             list.classList.add('list');
             this.listWrapper.append(list);
-
     }
 
     renderText(){
