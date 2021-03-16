@@ -38,17 +38,18 @@ class TaskCreator{
 
 
     submitForm(){
-        this.form.addEventListener('submit',e=>{
-            e.preventDefault();
-            this.addNewTask(this.makeTask());
-            this.resetForm();
-        });
-        
+        this.form.addEventListener('submit',(e)=>this.formSubmitHandler(e));
+    }
+
+    formSubmitHandler(e){
+        e.preventDefault();
+        this.addNewTask(this.makeTask());
+        this.resetForm();
     }
 
     resetForm(){
         this.form.reset();
-            this.newTask={};
+        this.newTask={};
     }
 
     addNewTask(task){
@@ -58,8 +59,5 @@ class TaskCreator{
     }
 };
 
-const task = new TaskCreator();
 
-
-// task.submitForm();
 export default TaskCreator;
