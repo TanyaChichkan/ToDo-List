@@ -1,4 +1,6 @@
 import {taskList} from './tasks.js';
+import {Storage} from './storage.js';
+import RenderList from './renderList.js';
 
 class TaskCreator{
     constructor(){
@@ -53,9 +55,19 @@ class TaskCreator{
     }
 
     addNewTask(task){
-        const updatedTasks = [...taskList.tasks,task]; 
+        const tasks = Storage.getFromLocalStorage();
+        let updatedTasks;
+        
+        tasks ? 
+            updatedTasks = [...tasks,task] :
+            updatedTasks = [...taskList.tasks,task]; 
+            
         taskList.tasks = [...updatedTasks];
-        console.log(taskList.tasks);
+
+        Storage.setToLocalStorage(taskList.tasks);
+
+        const list = new RenderList();
+        list.markUpCheck();
     }
 };
 

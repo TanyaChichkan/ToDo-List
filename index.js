@@ -2,6 +2,7 @@ import {taskList} from './js/tasks.js';
 import TaskCreator from './js/taskCreator.js';
 import Modal from './js/modal.js';
 import FormModal from './js/formModal.js';
+import RenderList from './js/renderList.js';
 
 
 window.addEventListener("load",handler);
@@ -17,6 +18,9 @@ function handler(){
 
     const formModal = new FormModal();
     formModal.createTask();
+
+    const list = new RenderList();
+    list.markUpCheck();
 }
 
 

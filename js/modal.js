@@ -35,6 +35,7 @@ class Modal extends FormModal{
             const newTask = this.createTask();
             this.addNewTask(newTask);
             this.resetForm();
+            this.closeModal();
         }
 
         if(e.target.dataset.name === "modal-closer"){
