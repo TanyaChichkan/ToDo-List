@@ -15,22 +15,52 @@
             <div class="form-container">
 
                 <form class="form-task">
-                    <label>Add new task:
-                        <input type="text" name="name" placeholder="New task" class="form-input"/>
+                    <label class="input-label">Add new task:
+                        <input type="text" name="taskName" placeholder="New task" class="form-input"/>
                     </label>
-                    <button type="submit" class="button">Add</button>
+                    <button type="button" class="add-button">+</button>
                 </form>
 
                 <div class="form-search">
-                    <label for="search-input">Find task from the list</label>
-                    <input type="text" id="search-input" class="search-iput"/>
-                  </div>
+                    <label class="input-label">Find task from the list
+                        <input type="text" id="search-input" class="search-iput"/>
+                    </label>
+                </div>
             
             </div>
 
             <ul class="list">
                 <li class="list-item">Go shopping</li>
             </ul>
+
+            <div class="overlay">
+                <div class="modal">
+                    <form class="modal-form">
+                        <label class="input-label">
+                            Task:
+                            <input type="text" name="taskName" placeholder="New task" class="form-input"/>
+                        </label>
+
+                        <label class="input-label">
+                            Start date:
+                            <input type="date" name="startDate" class="form-input"/>
+                        </label>
+
+                        <label class="input-label">
+                            Expiration date:
+                            <input type="date" name="expDate" class="form-input"/>
+                        </label>
+
+                        <div class='button-wrapper'>
+                            <button type="submit" data-name="save" class="button">Save</button>
+                            <button type="button" data-name="cancel" class="button">Cancel</button>
+                        </div>
+
+                       
+                        
+                    </form>
+                </div>
+            </div>
 
         </div>
     </section>

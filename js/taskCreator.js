@@ -18,6 +18,7 @@ class TaskCreator{
 
     setTimingStart(value=""){
         const date = value ? value : new Date();
+
         const dayOfMonth = this.dateFormatting(date.getDate());
         const month = this.dateFormatting(date.getMonth()+1);
         const year = date.getFullYear();
