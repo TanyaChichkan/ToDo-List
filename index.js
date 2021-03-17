@@ -9,5 +9,6 @@ const modal = new Modal();
 function handler() {
   const list = new RenderList();
   list.markUpCheck();
-  new TaskCreator();
+
+  const task = new TaskCreator();
 }
