@@ -1,5 +1,5 @@
-import { Storage } from './storage.js';
-import { MarkUpCreator } from './markUpCreator.js';
+import { Storage } from '../utils-classes/storage.js';
+import { MarkUpCreator } from '../utils-classes/markUpCreator.js';
 
 export class RenderList {
   constructor() {

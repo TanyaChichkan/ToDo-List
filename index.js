@@ -1,15 +1,13 @@
-import { TaskCreator } from './js/taskCreator.js';
-import { Modal } from './js/modal.js';
-import { FormModal } from './js/formModal.js';
-import { RenderList } from './js/renderList.js';
+import { TaskCreator } from './js/main-classes/taskCreator.js';
+import { Modal } from './js/main-classes/modal.js';
+import { RenderList } from './js/main-classes/renderList.js';
 
 window.addEventListener('load', handler);
 
 const modal = new Modal();
 
 function handler() {
-    const list = new RenderList();
-    list.markUpCheck();
-    console.log(new TaskCreator ());
+  const list = new RenderList();
+  list.markUpCheck();
+  new TaskCreator();
 }
-

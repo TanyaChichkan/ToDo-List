@@ -1,4 +1,4 @@
-export class Handlers {
+export class RegExpHandlers {
   static regExprForInput(value) {
     let regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/0-9? ]/g;
 
