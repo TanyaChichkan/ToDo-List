@@ -1,8 +1,9 @@
 import {taskList} from './tasks.js';
 import {Storage} from './storage.js';
-import RenderList from './renderList.js';
+import {RenderList} from './renderList.js';
+import {Handlers} from './handlers.js';
 
-class TaskCreator{
+export class TaskCreator{
     constructor(){
         this.form = document.querySelector('.form-task');
         this.input = this.form.querySelector('.form-input');
@@ -11,19 +12,17 @@ class TaskCreator{
     }
 
     makeTask(){
-        this.newTask.id=this.idValue++;
-        this.newTask.title = this.inputValidation(this.input.value);
-        this.newTask.creationDate = this.setTimingStart();
-        this.newTask.expirationDate = this.setTimingFinish();
-        return this.newTask;
+        const task = {...this.newTask};
+        task.id=this.idValue++;
+        task.title = this.inputValidation(this.input.value);
+        task.creationDate = this.setTimingStart();
+        task.expirationDate = this.setTimingFinish();
+        console.log(task);
+        return task;
     }
 
     inputValidation(value){
-        var regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/0-9? ]/g;
-        
-        return regex.test(value) ? 
-            value.replace(regex, " ") :
-            value;
+       return Handlers.regExprForInput(value);
     }
 
     setTimingStart(value=""){
@@ -46,7 +45,6 @@ class TaskCreator{
        return  value < 10 ? String(value).padStart(2,"0") : value;
     }
 
-
     submitForm(){
         this.form.addEventListener('submit',(e)=>this.formSubmitHandler(e));
     }
@@ -59,7 +57,6 @@ class TaskCreator{
 
     resetForm(){
         this.form.reset();
-        this.newTask={};
     }
 
     addNewTask(task){
@@ -80,4 +77,3 @@ class TaskCreator{
 };
 
 
-export default TaskCreator;

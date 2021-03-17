@@ -67,8 +67,26 @@ h1{
     width: 100%;
     margin:0;
     padding:0;
-    padding-left: 15px;
     margin-top: 20px;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.list-text:first-child{
+    width: 100px;
+}
+
+.list-text{
+    margin: 0;
+    padding: 0;
+    width: calc(100% / 5);
 }
 
 .form-container{

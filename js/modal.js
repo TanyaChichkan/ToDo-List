@@ -1,16 +1,22 @@
-import TaskCreator from "./taskCreator.js";
-import FormModal from './formModal.js';
+import {FormModal} from './formModal.js';
 
-class Modal extends FormModal{
+export class Modal extends FormModal{
     constructor(){
         super();
+        this.setSelectors();
+        this.setListeners();
+    }
+
+    setSelectors(){
         this.openButton = document.querySelector('.add-button');
         this.modal = document.querySelector('.overlay');
         this.saveButton = document.querySelector(".button[data-name='save']");
     }
 
-    openModal(){
+    setListeners(){
         this.openButton.addEventListener('click',()=>this.openModalHandler());
+        this.modal.addEventListener("click",(e)=>this.buttonsClickHandler(e));
+        window.addEventListener("keydown",(e)=>this.closeModalByEscape(e))
     }
 
     openModalHandler(){
@@ -19,10 +25,6 @@ class Modal extends FormModal{
 
     closeModal(){
         this.modal.classList.remove('is-open');
-    }
-
-    buttonsClick(){
-        this.modal.addEventListener("click",(e)=>this.buttonsClickHandler(e));
     }
 
     buttonsClickHandler(e){
@@ -43,15 +45,12 @@ class Modal extends FormModal{
         }
     }
 
-    closeModalByEscape(){
-        window.addEventListener("keydown",e=>{
-            if(e.code ==="Escape"){
-                this.closeModal();
-            }
-        })
+    closeModalByEscape(e){
+        if(e.code ==="Escape"){
+            this.closeModal();
+        }
+       
     }
-
 }
 
 
-export default Modal;

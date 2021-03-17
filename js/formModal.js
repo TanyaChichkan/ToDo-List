@@ -1,7 +1,7 @@
-import TaskCreator from "./taskCreator.js";
+import {TaskCreator} from "./taskCreator.js";
 
 
-class FormModal extends TaskCreator{
+export class FormModal extends TaskCreator{
     constructor(){
         super();
         this.form= document.querySelector('.modal-form');
@@ -11,13 +11,14 @@ class FormModal extends TaskCreator{
     }
 
     createTask(){
-        this.newTask.id=this.idValue++;
-        this.newTask.title = this.inputValidation(this.input.value);
-        this.newTask.creationDate = this.dateCheck(this.newTask.creationDate);
-        this.newTask.expirationDate = this.dateCheck(this.newTask.expirationDate);
+        const newTask = {...this.newTask};
+        newTask.id=this.idValue++;
+        newTask.title = this.inputValidation(this.input.value);
+        newTask.creationDate = this.dateCheck(this.newTask.creationDate);
+        newTask.expirationDate = this.dateCheck(this.newTask.expirationDate);
 
         this.dateEdit(this.startDateInput.value);
-        return this.newTask;
+        return newTask;
     }
 
     dateCheck(value){
@@ -43,5 +44,3 @@ class FormModal extends TaskCreator{
 
 };
 
-
-export default FormModal;

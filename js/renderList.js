@@ -1,8 +1,7 @@
-import {taskList} from './tasks.js';
 import {Storage} from './storage.js';
 
 
-class RenderList{
+export class RenderList{
 
     constructor(){
         this.listWrapper = document.querySelector('.list-wrapper');
@@ -12,7 +11,7 @@ class RenderList{
 
     markUpCheck(){
         if(this.tasks.length){
-            this.listWrapper.innerHTML="";
+            this.listWrapper.textContent='';
             this.createListItems();
             this.renderList();
         }else {
@@ -35,9 +34,9 @@ class RenderList{
         if(this.tasks.length){
             this.createList();
             let list = document.querySelector('.list');
-            list.innerHTML=this.createListItems();
+            list.insertAdjacentHTML("beforeend",this.createListItems());
         }else{
-            list.innerHTML=this.createListItems();
+            list.insertAdjacentHTML("beforeend",this.createListItems());
         }
     }
 
@@ -48,8 +47,10 @@ class RenderList{
     }
 
     renderText(){
-        this.listWrapper.innerHTML = `<p class="empty-list">No tasks in your list yet</p>`
+        this.listWrapper.insertAdjacentHTML(
+            'beforeend',
+            `<p class="empty-list">No tasks in your list yet</p>`
+        );
     }
 };
 
-export default RenderList;

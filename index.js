@@ -1,27 +1,29 @@
-import {taskList} from './js/tasks.js';
-import TaskCreator from './js/taskCreator.js';
-import Modal from './js/modal.js';
-import FormModal from './js/formModal.js';
-import RenderList from './js/renderList.js';
+import {TaskCreator} from './js/taskCreator.js';
+import {Modal} from './js/modal.js';
+import {FormModal} from './js/formModal.js';
+import {RenderList} from './js/renderList.js';
 
 
-window.addEventListener("load",handler);
-
-function handler(){
-    const taskCreator = new TaskCreator();
-    taskCreator.submitForm();
+    window.addEventListener('load',handler);
 
     const modal = new Modal();
-    modal.openModal();
-    modal.buttonsClick();
-    modal.closeModalByEscape();
 
-    const formModal = new FormModal();
-    formModal.createTask();
+    function handler(){
+        const list = new RenderList();
+        list.markUpCheck();
+    }
+    
+    
+    const task = new TaskCreator();
+    task.submitForm();
+   
 
-    const list = new RenderList();
-    list.markUpCheck();
-}
+  
+    
+
+    
+
+
 
 
 
