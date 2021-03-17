@@ -14,21 +14,21 @@ export class FormModal extends TaskCreator{
         const newTask = {...this.newTask};
         newTask.id=this.idValue++;
         newTask.title = this.inputValidation(this.input.value);
-        newTask.creationDate = this.dateCheck(this.newTask.creationDate);
-        newTask.expirationDate = this.dateCheck(this.newTask.expirationDate);
+        newTask.creationDate = this.dateCheck("creationDate");
+        newTask.expirationDate = this.dateCheck("expirationDate");
 
         this.dateEdit(this.startDateInput.value);
         return newTask;
     }
 
     dateCheck(value){
-        if(value === this.newTask.creationDate){
+        if(value === "creationDate"){
             return this.startDateInput.value ? 
                     this.dateEdit(this.startDateInput.value) : 
                     this.setTimingStart();
         }
 
-        if(value===this.newTask.expirationDate){
+        if(value === "expirationDate"){
             return this.endDateInput.value ? 
                     this.dateEdit(this.endDateInput.value) : 
                     this.setTimingFinish()

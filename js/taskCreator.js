@@ -17,7 +17,6 @@ export class TaskCreator{
         task.title = this.inputValidation(this.input.value);
         task.creationDate = this.setTimingStart();
         task.expirationDate = this.setTimingFinish();
-        console.log(task);
         return task;
     }
 

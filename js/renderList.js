@@ -1,4 +1,5 @@
 import {Storage} from './storage.js';
+import {MarkUpCreator} from './markUpCreator.js';
 
 
 export class RenderList{
@@ -33,7 +34,7 @@ export class RenderList{
     renderList(){
         if(this.tasks.length){
             this.createList();
-            let list = document.querySelector('.list');
+            const list = document.querySelector('.list');
             list.insertAdjacentHTML("beforeend",this.createListItems());
         }else{
             list.insertAdjacentHTML("beforeend",this.createListItems());
@@ -41,9 +42,8 @@ export class RenderList{
     }
 
     createList(){
-        let list = document.createElement('ul');
-            list.classList.add('list');
-            this.listWrapper.append(list);
+            let list = MarkUpCreator.createListElement();
+            this.listWrapper.insertAdjacentElement("beforeend",list);
     }
 
     renderText(){
