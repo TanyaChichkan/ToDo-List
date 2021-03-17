@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <section class="page-list">
+        <div class="container">
+            <h1 class="page-title">To Do List</h1>
+
+            <div class="form-container">
+
+                <form class="form-task">
+                    <label class="input-label">Add new task:
+                        <input type="text" name="taskName" placeholder="New task" class="form-input"/>
+                    </label>
+                    <button type="button" class="add-button">+</button>
+                </form>
+
+                <div class="form-search">
+                    <label class="input-label">Find task from the list
+                        <input type="text" id="search-input" class="search-iput"/>
+                    </label>
+                </div>
+            
+            </div>
+
+            <div class="list-wrapper">
+            </div>
+
+            <div class="overlay" data-name="modal-closer">
+                <div class="modal">
+                    <form class="modal-form">
+                        <label class="input-label">
+                            Task:
+                            <input type="text" name="taskName" placeholder="New task" class="form-input"/>
+                        </label>
+
+                        <label class="input-label">
+                            Start date:
+                            <input type="date" name="startDate" class="form-input"/>
+                        </label>
+
+                        <label class="input-label">
+                            Expiration date:
+                            <input type="date" name="expDate" class="form-input"/>
+                        </label>
+
+                        <div class='button-wrapper'>
+                            <button type="submit" data-name="save" class="button">Save</button>
+                            <button type="button" data-name="cancel" class="button">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src = "./index.js" type="module"></script>
+    
+</body>
+</html>
