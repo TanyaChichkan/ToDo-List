@@ -1,18 +1,13 @@
-class TasksToDo{
-    constructor(){
-        this._tasks=[]
-    }
+class TasksToDo {
+  #tasks = [];
 
-    get tasks(){
-        return this._tasks;
-    }
+  get tasks() {
+    return this.#tasks;
+  }
 
-    set tasks(arr){
-       return this._tasks = arr;
-    }
+  set tasks(arr) {
+    return (this.#tasks = arr);
+  }
+}
 
-};
-
-
-export const taskList =  new TasksToDo();
-
+export const taskList = new TasksToDo();
