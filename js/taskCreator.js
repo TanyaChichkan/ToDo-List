@@ -12,10 +12,18 @@ class TaskCreator{
 
     makeTask(){
         this.newTask.id=this.idValue++;
-        this.newTask.title = this.input.value;
+        this.newTask.title = this.inputValidation(this.input.value);
         this.newTask.creationDate = this.setTimingStart();
         this.newTask.expirationDate = this.setTimingFinish();
         return this.newTask;
+    }
+
+    inputValidation(value){
+        var regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/0-9? ]/g;
+        
+        return regex.test(value) ? 
+            value.replace(regex, " ") :
+            value;
     }
 
     setTimingStart(value=""){

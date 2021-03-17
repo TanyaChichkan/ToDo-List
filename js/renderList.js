@@ -4,7 +4,6 @@ import {Storage} from './storage.js';
 
 class RenderList{
 
-    
     constructor(){
         this.listWrapper = document.querySelector('.list-wrapper');
         this.notificText = this.listWrapper.querySelector('.empty-list');

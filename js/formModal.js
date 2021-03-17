@@ -12,7 +12,7 @@ class FormModal extends TaskCreator{
 
     createTask(){
         this.newTask.id=this.idValue++;
-        this.newTask.title = this.input.value;
+        this.newTask.title = this.inputValidation(this.input.value);
         this.newTask.creationDate = this.dateCheck(this.newTask.creationDate);
         this.newTask.expirationDate = this.dateCheck(this.newTask.expirationDate);
 
