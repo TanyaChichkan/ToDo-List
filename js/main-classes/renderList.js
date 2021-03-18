@@ -1,11 +1,10 @@
 import { Storage } from '../utils-classes/storage.js';
 import { MarkUpCreator } from '../utils-classes/markUpCreator.js';
+import { List } from './list.js';
 
-export class RenderList {
+export class RenderList extends List {
   constructor() {
-    this.listWrapper = document.querySelector('.list-wrapper');
-    this.notificText = this.listWrapper.querySelector('.empty-list');
-    this.tasks = Storage.getFromLocalStorage();
+    super();
   }
 
   markUpCheck() {
@@ -19,15 +18,18 @@ export class RenderList {
   }
 
   createListItems() {
-    const markUp = this.tasks.map(({ title, creationDate, expirationDate }) => {
-      return `<li class="list-item">
-                        <p class="list-text">${title}</p>
+    const taskArr = [...this.tasks];
+    const markUp = taskArr.map(({ title, creationDate, expirationDate, done,className }, index) => {
+      return `<li class="list-item" data-index=${index}>
+                        <input type="checkbox" name="task-done" value="done" data-index=${index} />
+                        <p class="list-text task-title">${title}</p>
                         <p class="list-text">Start date: ${creationDate}</p>
                         <p class="list-text">Finish date: ${expirationDate}</p>
                         </li>`;
     });
     return markUp.join(' ');
   }
+
 
   renderList() {
     if (this.tasks.length) {
@@ -42,6 +44,12 @@ export class RenderList {
   createList() {
     let list = MarkUpCreator.createListElement();
     this.listWrapper.insertAdjacentElement('beforeend', list);
+  }
+
+  changeListItemsStyle(){
+    if(this.allListItems){
+
+    }
   }
 
   renderText() {

@@ -83,6 +83,11 @@ h1{
     width: 100px;
 }
 
+.list-item.is-done .task-title{
+    text-decoration: line-through;
+    color: lightgrey;
+}
+
 .list-text{
     margin: 0;
     padding: 0;
