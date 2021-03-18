@@ -20,7 +20,8 @@ export class List{
     
         if (!target.checked) {
           this.markTaskDone(indexItem, currentTasks);
-          target.parentNode.classList.remove('is-done');
+          target.parentNode.classList.replace('is-done','list-item');
+
         }
       }
 

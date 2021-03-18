@@ -83,7 +83,17 @@ h1{
     width: 100px;
 }
 
-.list-item.is-done .task-title{
+.is-done{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.is-done .task-title{
+    
     text-decoration: line-through;
     color: lightgrey;
 }
@@ -91,7 +101,6 @@ h1{
 .list-text{
     margin: 0;
     padding: 0;
-    width: calc(100% / 5);
 }
 
 .form-container{

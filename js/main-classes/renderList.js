@@ -20,11 +20,13 @@ export class RenderList extends List {
   createListItems() {
     const taskArr = [...this.tasks];
     const markUp = taskArr.map(({ title, creationDate, expirationDate, done,className }, index) => {
-      return `<li class="list-item" data-index=${index}>
-                        <input type="checkbox" name="task-done" value="done" data-index=${index} />
+      return `<li class=${done? 'is-done' : 'list-item'} data-index=${index}>
+                        <input type="checkbox" name="task-done" value="done" data-index=${index} ${done && 'checked'} />
                         <p class="list-text task-title">${title}</p>
                         <p class="list-text">Start date: ${creationDate}</p>
                         <p class="list-text">Finish date: ${expirationDate}</p>
+                        <p class="list-icon">&#10006</p>
+                        <p class="list-icon">&#9998</p>
                         </li>`;
     });
     return markUp.join(' ');
