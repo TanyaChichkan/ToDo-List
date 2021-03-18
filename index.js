@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', handler);
 const modal = new Modal();
 
 const task = new TaskCreator();
+const list = new RenderList();
 
 function handler() {
-    const list = new RenderList();
     list.markUpCheck();
 }
 

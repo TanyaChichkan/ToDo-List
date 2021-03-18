@@ -8,6 +8,7 @@ export class FormModal extends Form {
     this.input = this.form.querySelector('input[name="taskName"]');
     this.startDateInput = this.form.querySelector('input[name="startDate"]');
     this.endDateInput = this.form.querySelector('input[name="expDate"]');
+    
   }
 
   createTask() {
