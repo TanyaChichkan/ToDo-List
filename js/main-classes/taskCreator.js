@@ -1,20 +1,21 @@
 import { Form } from './form.js';
+import { IdCreator } from '../utils-classes/idCreator.js';
 
 export class TaskCreator extends Form {
   constructor() {
     super();
     this.form = document.querySelector('.form-task');
     this.input = this.form.querySelector('.form-input');
-    this.idValue = 0;
     this.setListeners();
   }
 
   makeTask() {
     const task = {};
-    task.id = this.idValue++;
+    task.id = IdCreator.idCreate();
     task.title = this.inputValidation(this.input.value);
     task.creationDate = this.dateCheck('creationDateForm');
     task.expirationDate = this.dateCheck('expirationDateForm');
+    task.done = false;
     return task;
   }
 

@@ -6,6 +6,7 @@ export class RenderList {
     this.listWrapper = document.querySelector('.list-wrapper');
     this.notificText = this.listWrapper.querySelector('.empty-list');
     this.tasks = Storage.getFromLocalStorage();
+    this.listWrapper.addEventListener('click', ({ target }) => this.handlerTaskClick(target));
   }
 
   markUpCheck() {
@@ -19,9 +20,10 @@ export class RenderList {
   }
 
   createListItems() {
-    const markUp = this.tasks.map(({ title, creationDate, expirationDate }) => {
-      return `<li class="list-item">
-                        <p class="list-text">${title}</p>
+    const markUp = this.tasks.map(({ title, creationDate, expirationDate }, index) => {
+      return `<li class="list-item" data-index=${index}>
+                        <input type="checkbox" name="task-done" value="done" data-index=${index} />
+                        <p class="list-text task-title">${title}</p>
                         <p class="list-text">Start date: ${creationDate}</p>
                         <p class="list-text">Finish date: ${expirationDate}</p>
                         </li>`;
@@ -31,6 +33,7 @@ export class RenderList {
 
   renderList() {
     if (this.tasks.length) {
+      console.log('check');
       this.createList();
       const list = document.querySelector('.list');
       list.insertAdjacentHTML('beforeend', this.createListItems());
@@ -49,5 +52,30 @@ export class RenderList {
       'beforeend',
       `<p class="empty-list">No tasks in your list yet</p>`
     );
+  }
+
+  handlerTaskClick(target) {
+    console.log(target);
+
+    const indexItem = Number(target.dataset.index);
+
+    if (target.name === 'task-done' && target.checked) {
+      this.markTaskDone(indexItem);
+      target.parentNode.classList.add('is-done');
+    }
+
+    if (!target.checked) {
+      this.markTaskDone(indexItem);
+      target.parentNode.classList.remove('is-done');
+    }
+  }
+
+  markTaskDone(indexItem) {
+    const updatedTasks = Storage.getFromLocalStorage();
+    const editedTasks = updatedTasks.map((el, index) => {
+      return indexItem === index ? { ...el, done: !el.done } : el;
+    });
+
+    Storage.setToLocalStorage(editedTasks);
   }
 }
