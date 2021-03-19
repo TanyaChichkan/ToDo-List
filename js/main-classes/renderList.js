@@ -20,7 +20,7 @@ export class RenderList {
 
   renderList() {
     if (this.tasks.length) {
-      this.createList();
+      MarkUpCreator.createList();
       const list = document.querySelector('.list');
       list.insertAdjacentHTML('beforeend', MarkUpCreator.createListItems(this.tasks));
     } else {
@@ -28,10 +28,10 @@ export class RenderList {
     }
   }
 
-  createList() {
-    let list = MarkUpCreator.createListElement();
-    listWrapper.insertAdjacentElement('beforeend', list);
-  }
+  // createList() {
+  //   let list = MarkUpCreator.createListElement();
+  //   listWrapper.insertAdjacentElement('beforeend', list);
+  // }
 
   renderText() {
     listWrapper.insertAdjacentHTML(

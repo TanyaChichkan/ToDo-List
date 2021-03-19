@@ -98,16 +98,24 @@ h1{
     color: lightgrey;
 }
 
+.list-icon{
+    margin: 0;
+}
+
 .list-text{
     margin: 0;
     padding: 0;
+}
+
+.task-title{
+    width: 100px;
 }
 
 .form-container{
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
     margin-top: 20px;
 }
 
@@ -165,4 +173,46 @@ h1{
     width: 100px;
     background-color: rosybrown;
     padding: 6px;
+}
+
+.filter-wrapper{
+    display: none;
+}
+
+.filter-wrapper.is-open{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20px;
+    /* width: 100%; */
+    justify-content: space-between;
+}
+
+.filter-list{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding:0;
+    margin:0;
+}
+
+.filter-item{
+    width: 150px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.filter-item:last-child{
+    margin-right: 0;
+}
+
+.filter-icon{
+    font-size: 20px;
+    color: black;
 }

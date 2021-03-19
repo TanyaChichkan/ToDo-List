@@ -1,3 +1,5 @@
+import {listWrapper} from '../constants/constants.js';
+
 export class MarkUpCreator {
   static createListElement() {
     let newListElement = document.createElement('ul');
@@ -19,6 +21,17 @@ export class MarkUpCreator {
     });
     return markUp.join(' ');
   }
+
+  static createList() {
+    let list = this.createListElement();
+    listWrapper.insertAdjacentElement('beforeend', list);
+    return list
+  }
+
+  static  renderListItems(arr){
+    const list = document.querySelector('.list');
+    list.innerHTML = MarkUpCreator.createListItems(arr);
+}
 
 
 }
