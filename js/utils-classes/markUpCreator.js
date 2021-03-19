@@ -25,13 +25,12 @@ export class MarkUpCreator {
   static createList() {
     let list = this.createListElement();
     listWrapper.insertAdjacentElement('beforeend', list);
-    return list
+    return list;
   }
 
   static  renderListItems(arr){
     const list = document.querySelector('.list');
     list.innerHTML = MarkUpCreator.createListItems(arr);
-}
-
+  }
 
 }
