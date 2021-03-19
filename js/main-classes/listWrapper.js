@@ -20,7 +20,7 @@ export class ListWrapper {
       const filteredArr = arr.filter((el, index) => index !== Number(target.dataset.index));
       Storage.setToLocalStorage(filteredArr);
 
-      this.listWrapper.innerHTML = MarkUpCreator.createListItems(filteredArr);
+      listWrapper.innerHTML = MarkUpCreator.createListItems(filteredArr);
     }
 
     if (target.name === 'task-done' && target.checked) {
