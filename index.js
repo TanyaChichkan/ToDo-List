@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', handler);
 
 
 function handler() {
+
+    const list = new RenderList();
+    list.markUpCheck();
+    
     const modal = new Modal();
     
     const task = new TaskCreator();
-    const list = new RenderList();
-    list.markUpCheck();
+   
     const wrapper = new ListWrapper();
     const filterWrapper = new Filter();
     const buttonsFilter = new ButtonsFilter();

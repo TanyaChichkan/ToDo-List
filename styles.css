@@ -175,6 +175,7 @@ h1{
     padding: 6px;
 }
 
+
 .filter-wrapper{
     display: none;
 }
@@ -206,6 +207,10 @@ h1{
     text-align: center;
     justify-content: center;
     margin-right: 10px;
+}
+
+.button-link{
+    width: 80px;
 }
 
 .filter-item:last-child{

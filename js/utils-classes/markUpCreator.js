@@ -16,7 +16,7 @@ export class MarkUpCreator {
                         <p class="list-text">Start date: ${creationDate}</p>
                         <p class="list-text">Finish date: ${expirationDate}</p>
                         <p class="list-icon" data-name="task-delete" data-index=${index}>&#10006</p>
-                        <p class="list-icon">&#9998</p>
+                        <p class="list-icon edit-button" data-name="task-edit" data-index=${index}>&#9998</p>
                         </li>`;
     });
     return markUp.join(' ');

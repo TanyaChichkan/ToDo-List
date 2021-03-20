@@ -44,4 +44,6 @@ export class DateMethods {
   dateEdit(value) {
     return value.split('-').reverse().join('-');
   }
+
+  
 }

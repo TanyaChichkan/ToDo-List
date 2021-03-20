@@ -28,11 +28,6 @@ export class RenderList {
     }
   }
 
-  // createList() {
-  //   let list = MarkUpCreator.createListElement();
-  //   listWrapper.insertAdjacentElement('beforeend', list);
-  // }
-
   renderText() {
     listWrapper.insertAdjacentHTML(
       'beforeend',
