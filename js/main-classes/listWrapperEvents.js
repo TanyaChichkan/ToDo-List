@@ -1,7 +1,6 @@
 import { Storage } from '../utils-classes/storage.js';
 import { MarkUpCreator } from '../utils-classes/markUpCreator.js';
-import {listWrapper} from '../constants/constants.js';
-
+import { listWrapper } from '../constants/constants.js';
 
 export class ListWrapper {
   constructor() {
@@ -15,7 +14,6 @@ export class ListWrapper {
 
     if (target.dataset.name === 'task-delete') {
       const arr = [...Storage.getFromLocalStorage()];
-      console.log(arr);
 
       const filteredArr = arr.filter((el, index) => index !== Number(target.dataset.index));
       Storage.setToLocalStorage(filteredArr);
@@ -34,9 +32,9 @@ export class ListWrapper {
   }
 
   markTaskDone(indexItem, tasks) {
-    const editedTasks = tasks.map((el, index) => {
-      return indexItem === index ? { ...el, done: !el.done } : el;
-    });
+    const editedTasks = tasks.map((el, index) =>
+      indexItem === index ? { ...el, done: !el.done } : el
+    );
     Storage.setToLocalStorage(editedTasks);
   }
 }

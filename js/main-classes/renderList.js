@@ -1,6 +1,6 @@
 import { Storage } from '../utils-classes/storage.js';
 import { MarkUpCreator } from '../utils-classes/markUpCreator.js';
-import {listWrapper} from '../constants/constants.js';
+import { listWrapper } from '../constants/constants.js';
 
 export class RenderList {
   constructor() {
@@ -28,17 +28,10 @@ export class RenderList {
     }
   }
 
-  // createList() {
-  //   let list = MarkUpCreator.createListElement();
-  //   listWrapper.insertAdjacentElement('beforeend', list);
-  // }
-
   renderText() {
     listWrapper.insertAdjacentHTML(
       'beforeend',
       `<p class="empty-list">No tasks in your list yet</p>`
     );
   }
-
 }
-
