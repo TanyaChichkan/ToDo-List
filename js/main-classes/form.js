@@ -16,7 +16,7 @@ export class Form extends DateMethods {
   addNewTask(task) {
     const tasks = [...Storage.getFromLocalStorage()];
     let updatedTasks;
-    tasks ?  updatedTasks = [...tasks, task] : updatedTasks = [...taskList.tasks, task];
+    tasks ? (updatedTasks = [...tasks, task]) : (updatedTasks = [...taskList.tasks, task]);
     taskList.tasks = [...updatedTasks];
 
     Storage.setToLocalStorage(taskList.tasks);
@@ -40,11 +40,11 @@ export class Form extends DateMethods {
     return editedTask;
   }
 
-  updateTask(task){
+  updateTask(task) {
     const tasks = [...Storage.getFromLocalStorage()];
-    const updatedTasks = tasks.map((el,index)=>el.id === task.id ? {...task} : el);
+    const updatedTasks = tasks.map((el, index) => (el.id === task.id ? { ...task } : el));
     Storage.setToLocalStorage(updatedTasks);
 
-    return updatedTasks
+    return updatedTasks;
   }
 }

@@ -16,11 +16,10 @@ export class FormModal extends Form {
   handler() {
     this.task = {
       ...this.task,
-      title: this.input.value,
-      creationDate: this.startDateInput.value,
-      expirationDate: this.endDateInput.value,
+      title: this.inputValidation(this.input.value),
+      creationDate: this.dateEdit(this.startDateInput.value),
+      expirationDate: this.dateEdit(this.endDateInput.value),
     };
-
   }
 
   createTask() {

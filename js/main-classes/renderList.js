@@ -1,6 +1,6 @@
 import { Storage } from '../utils-classes/storage.js';
 import { MarkUpCreator } from '../utils-classes/markUpCreator.js';
-import {listWrapper} from '../constants/constants.js';
+import { listWrapper } from '../constants/constants.js';
 
 export class RenderList {
   constructor() {
@@ -34,6 +34,4 @@ export class RenderList {
       `<p class="empty-list">No tasks in your list yet</p>`
     );
   }
-
 }
-
